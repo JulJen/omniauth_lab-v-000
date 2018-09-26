@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
     end
     session[:user_id] = @user.id
 
-    render 'welcome/home'
+    redirect_to 'welcome/home'
   end
 
   private
 
-  def auth_hash
-    !!request.env["omniauth.auth"]
+  def auth
+    request.env['omniauth.auth']
   end
 
 end
